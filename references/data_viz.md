@@ -75,7 +75,7 @@ Below is a complete, fully valid JSON output representing a grouped bar chart:
 {
   "mode": "data_viz",
   "_meta": {
-    "schema_version": "1.0.0",
+    "schema_version": "1.0.1",
     "source": "screenshot",
     "image_orientation": "landscape",
     "detected_language": "en",

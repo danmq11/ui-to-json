@@ -27,7 +27,7 @@ ui-to-json/
 ├── SKILL.md                 # entry point (mode selection + global rules)
 ├── references/
 │   ├── ui.md  scene.md  document.md  diagram.md  data_viz.md
-│   └── schema.json          # consolidated draft-07 schema (v1.0.0)
+│   └── schema.json          # consolidated draft-07 schema (v1.0.1)
 └── scripts/
     └── validate.py          # validates every worked example against schema.json
 ```
@@ -54,7 +54,7 @@ This checks that every worked example in `references/*.md` validates against `re
 
 ## Versioning
 
-Schema version is `1.0.0` (see `references/schema.json` `$id`/`version`, and the `schema_version` field inside each output's `_meta`).
+Schema version is `1.0.1` (see `references/schema.json` `$id`/`version`, and the `schema_version` field inside each output's `_meta`).
 
 ## License
 

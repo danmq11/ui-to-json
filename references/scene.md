@@ -92,7 +92,7 @@ Below is a complete, fully valid JSON output representing a photo of a desktop w
 {
   "mode": "scene",
   "_meta": {
-    "schema_version": "1.0.0",
+    "schema_version": "1.0.1",
     "source": "photo",
     "image_orientation": "landscape",
     "detected_language": "en",

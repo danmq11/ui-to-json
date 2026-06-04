@@ -47,7 +47,7 @@ Every output begins with two keys so a parser can route it without guessing:
 {
   "mode": "ui",
   "_meta": {
-    "schema_version": "1.0.0",
+    "schema_version": "1.0.1",
     "source": "screenshot",
     "image_orientation": "portrait",
     "detected_language": "en",
@@ -58,7 +58,7 @@ Every output begins with two keys so a parser can route it without guessing:
 ```
 
 - `mode`: one of `ui` | `scene` | `document` | `diagram` | `data_viz`.
-- `_meta` fields: `schema_version` should be `"1.0.0"` so consumers can track the output format as it evolves. Other fields are optional; use `null` when unknown. `confidence` (`high`/`medium`/`low`) is your overall certainty.
+- `_meta` fields: `schema_version` should be `"1.0.1"` so consumers can track the output format as it evolves. Other fields are optional; use `null` when unknown. `confidence` (`high`/`medium`/`low`) is your overall certainty.
 - The mode-specific keys sit in the same flat object, right after `_meta`.
 
 ## Cross-mode conventions (use only when relevant)

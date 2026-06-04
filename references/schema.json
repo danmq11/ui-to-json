@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://ui-to-json/schema/1.0.0",
+  "$id": "https://ui-to-json/schema/1.0.1",
   "title": "ui-to-json output schema",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "oneOf": [
     { "$ref": "#/definitions/ui" },
     { "$ref": "#/definitions/scene" },
@@ -35,7 +35,7 @@
     "meta": {
       "type": "object",
       "properties": {
-        "schema_version": { "type": "string", "description": "Version of this output schema, e.g. \"1.0.0\"" },
+        "schema_version": { "type": "string", "description": "Version of this output schema, e.g. \"1.0.1\"" },
         "source": { "type": "string" },
         "image_orientation": { "type": ["string", "null"], "enum": ["portrait", "landscape", "square", null] },
         "detected_language": { "type": ["string", "null"] },
