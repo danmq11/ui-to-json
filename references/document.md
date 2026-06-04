@@ -90,7 +90,7 @@ When a high-stakes value is printed but hard to read (faded ink, glare, smudge),
 ```json
 {
   "mode": "document",
-  "_meta": { "schema_version": "1.0.1", "source": "photo", "image_orientation": "portrait", "detected_language": "vi", "confidence": "medium", "notes": "Receipt total partly smudged" },
+  "_meta": { "schema_version": "1.0.2", "source": "photo", "image_orientation": "portrait", "detected_language": "vi", "confidence": "medium", "notes": "Receipt total partly smudged" },
   "document_type": "receipt",
   "language": "vi",
   "metadata": { "title": "HÓA ĐƠN", "document_number": "HD-2026-0510", "issue_date": "2026-06-04", "due_date": null, "reference": null, "page": "1/1" },
@@ -122,7 +122,7 @@ Below is a complete, fully valid JSON output representing a printed coffee shop 
 {
   "mode": "document",
   "_meta": {
-    "schema_version": "1.0.1",
+    "schema_version": "1.0.2",
     "source": "scan",
     "image_orientation": "portrait",
     "detected_language": "vi",

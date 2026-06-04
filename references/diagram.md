@@ -93,7 +93,7 @@ Below is a complete, fully valid JSON output representing a flowchart diagram:
 {
   "mode": "diagram",
   "_meta": {
-    "schema_version": "1.0.1",
+    "schema_version": "1.0.2",
     "source": "screenshot",
     "image_orientation": "portrait",
     "detected_language": "en",

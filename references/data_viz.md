@@ -75,7 +75,7 @@ Below is a complete, fully valid JSON output representing a grouped bar chart:
 {
   "mode": "data_viz",
   "_meta": {
-    "schema_version": "1.0.1",
+    "schema_version": "1.0.2",
     "source": "screenshot",
     "image_orientation": "landscape",
     "detected_language": "en",
@@ -140,3 +140,48 @@ Below is a complete, fully valid JSON output representing a grouped bar chart:
 }
 ```
 
+
+
+## Worked Example 2 — line chart with a gridline-estimated value
+
+Shows a value read off the plot (no printed label) wrapped with field-level confidence, plus a callout annotation.
+
+```json
+{
+  "mode": "data_viz",
+  "_meta": {
+    "schema_version": "1.0.2",
+    "source": "screenshot",
+    "image_orientation": "landscape",
+    "detected_language": "en",
+    "confidence": "medium",
+    "notes": "Single-line chart; some points read against gridlines"
+  },
+  "chart_type": "line",
+  "title": "Website Daily Active Users",
+  "subtitle": "Last 5 days",
+  "axes": {
+    "x": { "label": "Day", "unit": null, "type": "category", "categories": ["Mon", "Tue", "Wed", "Thu", "Fri"] },
+    "y": { "label": "DAU", "unit": "users", "type": "numeric", "min": 0, "max": 5000, "scale": "linear" }
+  },
+  "series": [
+    {
+      "name": "DAU",
+      "color": "#16a34a",
+      "points": [
+        { "x": "Mon", "y": 2100 },
+        { "x": "Tue", "y": 2650 },
+        { "x": "Wed", "y": { "value": 3200, "confidence": "medium", "reason": "no data label; read between the 3000 and 3500 gridlines" } },
+        { "x": "Thu", "y": 3050 },
+        { "x": "Fri", "y": 4180 }
+      ]
+    }
+  ],
+  "annotations": [
+    { "type": "callout", "label": "Friday launch spike", "at": { "x": "Fri", "y": 4180 } }
+  ],
+  "legend_position": "none",
+  "source_note": "Source: Analytics dashboard",
+  "visual_state": { "overall_theme": "light", "gridlines": true, "data_labels_shown": false, "special_notes": "Sharp rise on Friday after a product launch." }
+}
+```

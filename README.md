@@ -1,7 +1,7 @@
 # ui-to-json
 
 [![validate](https://github.com/danmq11/ui-to-json/actions/workflows/validate.yml/badge.svg)](https://github.com/danmq11/ui-to-json/actions/workflows/validate.yml)
-![version](https://img.shields.io/badge/version-1.0.1-2ea44f)
+![version](https://img.shields.io/badge/version-1.0.2-2ea44f)
 ![license](https://img.shields.io/badge/license-MIT-blue)
 ![platforms](https://img.shields.io/badge/works%20on-Claude%20Code%20·%20Gemini%20·%20Antigravity-7c3aed)
 
@@ -26,7 +26,7 @@ A portable AI **Skill** that auto-detects the right schema across **five modes**
 ```json
 {
   "mode": "document",
-  "_meta": { "schema_version": "1.0.1", "source": "photo", "detected_language": "vi", "confidence": "high", "notes": null },
+  "_meta": { "schema_version": "1.0.2", "source": "photo", "detected_language": "vi", "confidence": "high", "notes": null },
   "document_type": "receipt",
   "metadata": { "document_number": "HD-2026-0089", "issue_date": "2026-06-04" },
   "parties": [ { "role": "seller", "name": "CÀ PHÊ SÀI GÒN", "tax_id": "0311223344" } ],
@@ -77,7 +77,7 @@ ui-to-json/
 ├── SKILL.md                 # entry point (mode selection + global rules)
 ├── references/
 │   ├── ui.md  scene.md  document.md  diagram.md  data_viz.md
-│   └── schema.json          # consolidated draft-07 schema (v1.0.1)
+│   └── schema.json          # consolidated draft-07 schema (v1.0.2)
 └── scripts/
     └── validate.py          # validates every worked example against schema.json
 ```
@@ -94,7 +94,7 @@ CI runs this automatically on every push.
 
 ## Versioning
 
-Schema version is `1.0.1` (see `references/schema.json` `$id`/`version`, and the `schema_version`
+Schema version is `1.0.2` (see `references/schema.json` `$id`/`version`, and the `schema_version`
 field inside each output's `_meta`). See [CHANGELOG.md](CHANGELOG.md) for history.
 
 ## Compatibility

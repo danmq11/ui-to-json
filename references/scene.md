@@ -92,7 +92,7 @@ Below is a complete, fully valid JSON output representing a photo of a desktop w
 {
   "mode": "scene",
   "_meta": {
-    "schema_version": "1.0.1",
+    "schema_version": "1.0.2",
     "source": "photo",
     "image_orientation": "landscape",
     "detected_language": "en",
@@ -165,3 +165,45 @@ Below is a complete, fully valid JSON output representing a photo of a desktop w
 }
 ```
 
+
+
+## Worked Example 2 — richer scene with people, an animal, and a QR sign
+
+Shows multiple subject types and a QR code captured in `text_in_scene` (note `code_type`).
+
+```json
+{
+  "mode": "scene",
+  "_meta": {
+    "schema_version": "1.0.2",
+    "source": "photo",
+    "image_orientation": "landscape",
+    "detected_language": "vi",
+    "confidence": "high",
+    "notes": "Evening street-food stall scene"
+  },
+  "scene_description": "A bustling Vietnamese street-food stall at dusk: a vendor grilling skewers behind a glass cart while two customers wait, warm string lights overhead and a wet pavement reflecting neon signs.",
+  "art_style": { "medium": "realistic photograph", "genre": "street photography" },
+  "composition": { "camera_angle": "eye-level", "shot_type": "medium shot", "depth_of_field": "shallow" },
+  "main_subjects": [
+    { "type": "person", "name": "street vendor", "appearance": "middle-aged woman in an apron and conical hat, sleeves rolled up", "position": "center, behind the cart", "action_or_expression": "fanning charcoal and turning skewers, focused", "interaction": "operating the grill cart, handing food to a customer" },
+    { "type": "person", "name": "waiting customer", "appearance": "young man in a denim jacket holding a phone", "position": "right foreground", "action_or_expression": "looking at the menu, relaxed", "interaction": "standing at the cart, about to scan the QR menu" },
+    { "type": "animal", "name": "stray cat", "appearance": "small orange tabby", "position": "lower-left foreground", "action_or_expression": "sitting and watching the grill", "interaction": "waiting near the vendor's feet for scraps" }
+  ],
+  "background_elements": [
+    "warm string lights strung above the stall",
+    "blurred neon shop signs reflected on wet pavement",
+    "stacks of plastic stools to the right"
+  ],
+  "text_in_scene": [
+    { "text": "BÚN CHẢ 25K", "location": "handwritten price board on the cart", "style": "white chalk on blackboard" },
+    { "text": "https://menu.example/stall12", "code_type": "qr", "location": "QR sticker on the cart glass", "style": "black-and-white QR code, ~4cm" }
+  ],
+  "lighting_and_atmosphere": { "light_source": "warm tungsten string lights plus colored neon spill", "intensity": "low, pooled around the cart", "color_temperature": "warm", "mood": "lively, inviting, nocturnal" },
+  "colors_dominant": [
+    { "color": "warm amber", "hex": "#d98a3d", "usage": "string lights and grill glow" },
+    { "color": "neon magenta", "hex": "#d6479b", "usage": "reflected shop signs on the pavement" },
+    { "color": "charcoal black", "hex": "#1c1b1a", "usage": "night sky and shadowed background" }
+  ]
+}
+```

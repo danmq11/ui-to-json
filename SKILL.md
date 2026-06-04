@@ -47,7 +47,7 @@ Every output begins with two keys so a parser can route it without guessing:
 {
   "mode": "ui",
   "_meta": {
-    "schema_version": "1.0.1",
+    "schema_version": "1.0.2",
     "source": "screenshot",
     "image_orientation": "portrait",
     "detected_language": "en",
@@ -58,7 +58,7 @@ Every output begins with two keys so a parser can route it without guessing:
 ```
 
 - `mode`: one of `ui` | `scene` | `document` | `diagram` | `data_viz`.
-- `_meta` fields: `schema_version` should be `"1.0.1"` so consumers can track the output format as it evolves. Other fields are optional; use `null` when unknown. `confidence` (`high`/`medium`/`low`) is your overall certainty.
+- `_meta` fields: `schema_version` should be `"1.0.2"` so consumers can track the output format as it evolves. Other fields are optional; use `null` when unknown. `confidence` (`high`/`medium`/`low`) is your overall certainty.
 - The mode-specific keys sit in the same flat object, right after `_meta`.
 
 ## Cross-mode conventions (use only when relevant)
@@ -77,5 +77,13 @@ These apply to every mode — never add them just to fill space.
 3. Empty sections → `[]` or `null`. Unreadable text → `"[unreadable]"` (or `"[illegible]"` inline within a transcribed string).
 4. Preserve visual order (top-to-bottom, left-to-right) and estimate hex colors when not exactly readable.
 5. Never put comments inside the JSON.
+
+## Edge cases
+
+Still always return one valid mode object — never refuse or emit prose. Handle the awkward inputs like this:
+
+- **Blank / empty / unreadable image** — pick the closest plausible mode (default `scene`), set `_meta.confidence: "low"`, leave the mode arrays empty (`[]`/`null`), and explain in `_meta.notes` (e.g. "image is blank/overexposed, no content detected").
+- **QR codes / barcodes** — capture them, don't skip. In `scene`/`ui`, add to `text_in_scene` (or a `data_displays` item) with the code type and decoded value if legible: `{ "text": "<decoded or [unreadable]>", "code_type": "qr", "location": "…" }`. In `document`, put it under `key_values` (e.g. `"qr_code": "https://…"`). Use `[unreadable]` if you can't decode it.
+- **Cropped / partially cut-off image** — extract what is visible; for any value the crop truncates, use the field-level confidence wrapper (`{ "value": "…", "confidence": "low", "reason": "cut off at edge" }`) rather than guessing, and note the crop in `_meta.notes`.
 
 A consolidated JSON Schema (draft-07, `oneOf` across the five modes) lives in `references/schema.json` for validating outputs. Maintainers: after editing the skill, run `python scripts/validate.py` to confirm every worked example still validates against the schema.
