@@ -56,6 +56,12 @@ This checks that every worked example in `references/*.md` validates against `re
 
 Schema version is `1.0.1` (see `references/schema.json` `$id`/`version`, and the `schema_version` field inside each output's `_meta`).
 
+## Compatibility
+
+Tested and working on **Claude Code**, **Gemini**, and **Antigravity**. The skill uses the
+open `SKILL.md` + `references/` format with progressive disclosure, so it is portable across
+any agent platform that supports skills — no platform-specific code.
+
 ## License
 
 MIT
