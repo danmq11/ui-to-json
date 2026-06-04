@@ -1,0 +1,41 @@
+# --- Sensitive / personal data: NEVER commit ---
+# Test images, screenshots, receipts, photos with GPS/EXIF, etc.
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.bmp
+*.tiff
+*.pdf
+# Generated extraction outputs from real images
+out_*.json
+*-output.json
+*_result.json
+trigger_eval*.json
+# Local workspaces / scratch
+*-workspace/
+scratch/
+tmp/
+
+# --- Packaged artifacts (attach to Releases instead of committing) ---
+*.skill
+*.zip
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# --- Editor / OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Anything with a local user path slips in by accident ---
+# (review diffs before committing; do not commit files containing C:\Users\...)
