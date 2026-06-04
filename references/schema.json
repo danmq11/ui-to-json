@@ -42,7 +42,7 @@
         "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
         "notes": { "type": ["string", "null"] }
       },
-      "required": ["source", "confidence"]
+      "required": ["schema_version", "source", "confidence"]
     },
     "field_confidence": {
       "type": "object",
